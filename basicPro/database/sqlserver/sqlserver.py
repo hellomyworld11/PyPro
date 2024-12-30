@@ -97,7 +97,7 @@ class Sqlserver:
         self.db.commit()
 
 def main():
-    cli = Sqlserver('JRZC-17\SQLEXPRESS', 'xupan', 'xupan', 'kr_data')
+    cli = Sqlserver('120.0.0.1', '111', '222', 'data')
     cli.connect()
     list = [(1, '2', 3, 'he'), (200, '2', 10.0, '111')]
     cli.Import('testimport', list)
