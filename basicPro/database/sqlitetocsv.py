@@ -11,6 +11,7 @@ window = None
 e1 = None
 l1 = None
 l2 = None
+combobox = None
 
 def mkdir(path):
 
@@ -62,12 +63,15 @@ def getsqlitetables(sqlite1):
 
 def start():
     print("进行转换...")
+    global e1
+    global combobox
     n1 = e1.get()  # 获取输入框1的值
     n2 = combobox.get()
     sqlitetocsv(n1, n2)
 
 def startall():
     print("进行转换...")
+    global e1
     n1 = e1.get()  # 获取输入框1的值
 
     tables = getsqlitetables(n1)
@@ -75,6 +79,8 @@ def startall():
         sqlitetocsv(n1, i)
 
 def inputdb(event=''):
+    global e1
+    global combobox
     n1 = e1.get()
     tables = getsqlitetables(n1)
     if len(tables) == 0:
@@ -84,6 +90,12 @@ def inputdb(event=''):
    # combobox.pack(padx=5, pady=10)
 
 def initDlg():
+    global window  #想要修改全局变量
+    global e1
+    global l1
+    global l2
+    global combobox
+
     # 主窗口
     window = tkinter.Tk()
     # 设置窗口title
